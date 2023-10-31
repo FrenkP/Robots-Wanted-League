@@ -1,0 +1,46 @@
+﻿@model List<Robot>
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+@{
+    ViewData["Title"] = "Robots";
+}
+
+<h3>Liste des Robots</h3>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Country</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var robot in Model)
+        {
+            <tr>
+                <td>@robot.Name</td>
+                <td>@robot.Country</td>
+                <td>
+                    <a asp-controller="Robots" asp-action="Robot" asp-route-id="@robot.Id">Details</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<div class="row">
+    <div class="col-md-6">
+        <form asp-controller="Robots" asp-action="Search" method="post" class="form-inline mb-3">
+          <div class="form-group mr-2">
+            <input type="text" class="form-control" name="searchTerm" placeholder="Search by country or continent">
+          </div>
+          <button type="submit" class="btn btn-primary">Search</button>
+        </form>
+    </div>
+</div>
+
+<a class="btn btn-primary mt-2" href="/robots/createRobot"> Ajouter un robot</a>

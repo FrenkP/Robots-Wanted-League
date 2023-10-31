@@ -1,0 +1,25 @@
+@model IEnumerable<Robot>
+
+<h3>Search Results</h3>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Country</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var robot in Model)
+        {
+            <tr>
+                <td>@robot.Name</td>
+                <td>@robot.Country</td>
+                <td>
+                    <a asp-controller="Robots" asp-action="Robot" asp-route-id="@robot.Id">Details</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

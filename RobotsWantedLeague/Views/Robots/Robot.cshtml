@@ -1,0 +1,43 @@
+@model Robot
+
+@{
+    string imageURL = "https://robohash.org/aligator" + Model.Id.ToString() + "?set=set2";
+}
+
+<div class="container">
+    <div class="d-flex justify-content-center">
+        <div class="card" style="width: 10rem;">
+            <img class="card-img-top" 
+                 src="@imageURL">
+        </div>
+    </div>
+</div>
+
+
+<table class="table">
+    <tr>
+        <th>Nom</th><td>@Model.Name</td>
+    </tr>
+
+    <tr>
+        <th>Poids</th><td>@Model.Weight (kg)</td>
+    </tr>
+
+    <tr>
+        <th>Taille</th><td>@Model.Height (m)</td>
+    </tr>
+    <tr>
+        <th>Pays</th><td>@Model.Country</td>
+    </tr>
+
+</table>
+
+<a href="/robots/updatepays/@Model.Id" class="btn btn-primary">Modifier le pays</a>
+
+<h4>Historique des Pays Précédents :</h4>
+<ul>
+    @foreach (var country in Model.HistoriquePays)
+    {
+        <li>@country</li>
+    }
+</ul>

@@ -1,0 +1,25 @@
+@model List<Agent>
+
+<h3>Liste des Agents</h3>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Nom</th>
+            <th>Numéro d'Identification</th>
+            <th>Région</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var agent in Model)
+        {
+            <tr>
+                <td>@agent.Name</td>
+                <td>@agent.IdentificationNumber</td>
+                <td>@agent.Region</td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<a class="btn btn-primary mt-2" href="/agents/addAgent"> Ajouter un Agent</a>

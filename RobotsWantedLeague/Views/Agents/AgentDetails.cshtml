@@ -1,0 +1,17 @@
+@model RobotsWantedLeague.Models.Agent
+
+<h2>Informations de l'Agent</h2>
+
+<table class="table">
+    <tr>
+        <th>Nom</th><td>@Model.Name</td>
+    </tr>
+    <tr>
+        <th>Numéro d'Identification</th><td>@Model.IdentificationNumber</td>
+    </tr>
+    <tr>
+        <th>Région</th><td>@Model.Region</td>
+    </tr>
+</table>
+
+<a class="btn btn-primary" href="/agents">Retour à la liste des agents</a>
